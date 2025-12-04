@@ -3,7 +3,8 @@
 
 import SwiftUI
 
-extension View {
+
+public extension View {
     func screenSize () -> CGSize{
         guard let window = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
             return .zero
@@ -53,7 +54,7 @@ extension View {
     }
 }
 
-struct RoundedCorn: Shape {
+ struct RoundedCorn: Shape {
     var radius: CGFloat = .infinity
     var corners: UIRectCorner = .allCorners
     
@@ -69,12 +70,12 @@ struct RoundedCorn: Shape {
 
 
 @MainActor
-func feedbackSC() {
+public func feedbackSC() {
     let generator = UIImpactFeedbackGenerator(style: .medium)
        generator.impactOccurred()
 }
 
-extension Color {
+public extension Color {
     
     init(hex: String) {
         let scanner = Scanner(string: hex)
