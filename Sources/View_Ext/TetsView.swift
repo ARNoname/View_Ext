@@ -7,7 +7,10 @@ struct TetsView: View {
             Color.blue.opacity(0.3).ignoresSafeArea()
             VStack {
                 Text("Hello, World!")
-              
+                
+                CellApp(title: "") {
+                    
+                }
             }
         }
     }

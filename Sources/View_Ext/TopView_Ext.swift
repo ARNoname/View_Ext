@@ -2,22 +2,23 @@
 import SwiftUI
 
 public struct TopViewApp: View {
-    var imageLogo: String?
-    var imageLogoW: CGFloat = 123
-    var imageLogoH: CGFloat = 18
-    var title: String?
-    var weight: FontTypeApp = .bold
-    var size: CGFloat = 20
-    var fg: Color = .black
-    var bg: Color = .clear
-    var iconL: String?
-    var iconLColor: Color = .black
-    var iconR: String?
-    var iconRColor: Color = .black
-    var actionL: (() -> Void)?
-    var actionR: (() -> Void)?
-  
-public var body: some View {
+    
+    public var imageLogo: String?
+    public var imageLogoW: CGFloat = 123
+    public var imageLogoH: CGFloat = 18
+    public var title: String?
+    public var weight: FontTypeApp = .bold
+    public var size: CGFloat = 20
+    public var fg: Color = .black
+    public var bg: Color = .clear
+    public var iconL: String?
+    public var iconLColor: Color = .black
+    public var iconR: String?
+    public var iconRColor: Color = .black
+    public var actionL: (() -> Void)?
+    public var actionR: (() -> Void)?
+    
+    public var body: some View {
         ZStack {
             if let iconL, let actionL {
                 ButtonApp { actionL() } label: {

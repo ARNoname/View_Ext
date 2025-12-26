@@ -2,14 +2,14 @@ import SwiftUI
 
 public struct ImageTrasitionApp: View {
     
-    var imageOne: String
-    var imageTwo: String
-    var title: String?
-    var titleWeigth: FontTypeApp = .medium
-    var titleSize: CGFloat = 16
-    var titleSelecteColor: Color = .red
-    var isSelected: Bool
-    var action: () -> Void
+    public var imageOne: String
+    public var imageTwo: String
+    public var title: String?
+    public var titleWeigth: FontTypeApp = .medium
+    public var titleSize: CGFloat = 16
+    public var titleSelecteColor: Color = .red
+    public var isSelected: Bool
+    public var action: () -> Void
     
     public  var body: some View {
         ButtonApp {

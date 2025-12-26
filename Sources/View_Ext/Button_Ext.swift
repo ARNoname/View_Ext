@@ -16,7 +16,7 @@ public struct ButtonApp<Label: View>: View {
     }
 }
 
-extension ButtonApp where Label == Text {
+ extension ButtonApp where Label == Text {
     init(_ role: ButtonRole, _ titleKey: LocalizedStringKey, action: @escaping () -> Void) {
          self.action = action
          self.label = { Text(titleKey) }
