@@ -9,8 +9,17 @@ public struct ToggleApp: View {
     var fgisActiveOff: Color = .red
     var bgisActiveOn: Color  = .green
     var bgisActiveOff: Color = .red
+    var action: () -> Void
     
-    public var action: () -> Void
+public init(isConnect: Bool, scaleEffect: CGFloat, fgisActiveOn: Color, fgisActiveOff: Color, bgisActiveOn: Color, bgisActiveOff: Color, action: @escaping () -> Void) {
+        self.isConnect = isConnect
+        self.scaleEffect = scaleEffect
+        self.fgisActiveOn = fgisActiveOn
+        self.fgisActiveOff = fgisActiveOff
+        self.bgisActiveOn = bgisActiveOn
+        self.bgisActiveOff = bgisActiveOff
+        self.action = action
+    }
     
     public var body: some View {
         ZStack {
