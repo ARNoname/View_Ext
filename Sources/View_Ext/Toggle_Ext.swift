@@ -2,37 +2,40 @@ import SwiftUI
 
 public struct ToggleApp: View {
     
-    @State var scaleEffect: CGFloat = 1.0
-    @State var isConnect: Bool = false
-    var fgisActiveOn: Color = Color.white
-    var fgisActiveOff: Color = Color.red
-    var bgisActiveOn: Color = Color.green
-    var bgisActiveOff: Color = Color.red
-    @Binding var isEnableAllCategories: Bool
-    var action: () -> Void
+    @State private var isConnect: Bool = false
     
-public var body: some View {
+    var scaleEffect: CGFloat = 1.0
+    var fgisActiveOn: Color  = .white
+    var fgisActiveOff: Color = .red
+    var bgisActiveOn: Color  = .green
+    var bgisActiveOff: Color = .red
+    
+    public var action: () -> Void
+    
+    public var body: some View {
         ZStack {
             Circle()
                 .fill(Color.white)
                 .frame(width: 24, height: 24)
-                .hAlig(.leading, isEnableAllCategories ? 30 : 2)
+                .hAlig(isConnect ? .trailing : .leading, 2)
             
             VStack(alignment: .leading, spacing: 4) {
-                Text(isEnableAllCategories ? "ON" : "OFF")
+                Text(isConnect ? "ON" : "OFF")
                     .fontApp(.medium, 10)
-                    .foregroundStyle(isEnableAllCategories ? fgisActiveOn : fgisActiveOff)
+                    .foregroundStyle(isConnect ? fgisActiveOn : fgisActiveOff)
             }
-            .hAlig(.trailing, isEnableAllCategories ? 35 : 6)
+            .hAlig(isConnect ? .leading : .trailing, 6)
         }
         .frame(width: 56, height: 28)
-        .background(isEnableAllCategories ? bgisActiveOn : bgisActiveOff.opacity(0.5))
+        .background(isConnect ? bgisActiveOn : bgisActiveOff.opacity(0.5))
         .clipShape(.capsule)
-        .animation(.easeInOut(duration: 0.3), value: isEnableAllCategories)
+        .animation(.spring(duration: 0.3), value: isConnect)
         .scaleEffect(scaleEffect)
         .onTapGesture {
-            action()
             feedbackApp()
+            action()
+            isConnect.toggle()
         }
     }
 }
+

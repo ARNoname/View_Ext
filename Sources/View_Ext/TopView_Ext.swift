@@ -2,43 +2,59 @@
 import SwiftUI
 
 public struct TopViewApp: View {
-    var title: String
-    var weight: FontTypes = .bold
+    var imageLogo: String?
+    var imageLogoW: CGFloat = 123
+    var imageLogoH: CGFloat = 18
+    var title: String?
+    var weight: FontTypeApp = .bold
     var size: CGFloat = 20
     var fg: Color = .black
-    var bg: Color = .white
-    var imageL: String?
-    var imageR: String?
-    var logoImage: String?
+    var bg: Color = .clear
+    var iconL: String?
+    var iconLColor: Color = .black
+    var iconR: String?
+    var iconRColor: Color = .black
     var actionL: (() -> Void)?
     var actionR: (() -> Void)?
-    
+  
 public var body: some View {
         ZStack {
-            if let imageL, let actionL {
+            if let iconL, let actionL {
                 ButtonApp { actionL() } label: {
-                    Image(imageL)
+                    Image(iconL)
                         .renderingMode(.template)
-                        .foregroundStyle(Color.secondary)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 24, height: 24)
+                        .foregroundStyle(iconLColor)
                 }
                 .hAlig(.leading)
             }
             
             HStack {
-                if let logoImage {
-                    Image(logoImage)
+                if let imageLogo {
+                    Image(imageLogo)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: imageLogoW, height: imageLogoH)
                 }
-                Text(title)
-                    .fontsApp(weight, size)
-                    .foregroundStyle(fg)
+                
+                if let title {
+                    Text(title)
+                        .fontApp(weight, size)
+                        .foregroundStyle(fg)
+                }
             }
             .hAlig(.center)
             
-            if let imageR, let actionR {
+            if let iconR, let actionR {
                 ButtonApp { actionR() } label: {
-                    Image(imageR)
+                    Image(iconR)
                         .renderingMode(.template)
-                        .foregroundStyle(Color.black)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 24, height: 24)
+                        .foregroundStyle(iconRColor)
                 }
                 .hAlig(.trailing)
             }

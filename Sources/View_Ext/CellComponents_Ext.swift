@@ -8,9 +8,21 @@ public struct CellApp: View {
     var fg: Color = .black
     var iconR: String?
     var iconSysR: String?
-    var weight: FontTypes = .regular
+    var weight: FontTypeApp = .regular
     var size: CGFloat = 16
     var action: () -> Void
+    
+public  init(title: String, iconL: String? = nil, iconSysL: String? = nil, fg: Color, iconR: String? = nil, iconSysR: String? = nil, weight: FontTypeApp, size: CGFloat, action: @escaping () -> Void) {
+        self.title = title
+        self.iconL = iconL
+        self.iconSysL = iconSysL
+        self.fg = fg
+        self.iconR = iconR
+        self.iconSysR = iconSysR
+        self.weight = weight
+        self.size = size
+        self.action = action
+    }
     
 public  var body: some View {
         ButtonApp {
@@ -35,7 +47,7 @@ public  var body: some View {
                 
                 Text(title)
                     .foregroundStyle(fg)
-                    .fontsApp(weight, size)
+                    .fontApp(weight, size)
                 
                 Spacer()
                 

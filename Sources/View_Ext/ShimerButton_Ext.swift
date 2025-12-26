@@ -1,31 +1,11 @@
 import SwiftUI
 
-public extension View {
-    @ViewBuilder
-    func shine(_ trigger: Bool, duration: CGFloat = 0.8, clipShape: some Shape = .rect, rightToLeft: Bool = false) -> some View {
-        self
-            .overlay {
-                GeometryReader { geometry in
-                    let size = geometry.size
-                    let modeDuration = max(0.3, duration)
-                    
-                    ShineOverlayApp(
-                        trigger: trigger,
-                        size: size,
-                        duration: modeDuration,
-                        rightToLeft: rightToLeft
-                    )
-                }
-            }
-            .clipShape(clipShape)
-    }
-}
-
 private struct ShineOverlayApp: View {
     let trigger: Bool
     let size: CGSize
     let duration: CGFloat
     let rightToLeft: Bool
+    let color: Color
     
     @State private var animationOffset: CGFloat = 0
     
@@ -35,11 +15,11 @@ private struct ShineOverlayApp: View {
                 colors: [
                     .clear,
                     .clear,
-                    .white.opacity(0.1),
-                    .white.opacity(0.5),
-                    .white.opacity(1),
-                    .white.opacity(0.5),
-                    .white.opacity(0.1),
+                    color.opacity(0.1),
+                    color.opacity(0.5),
+                    color.opacity(1),
+                    color.opacity(0.5),
+                    color.opacity(0.1),
                     .clear,
                     .clear,
                 ],
@@ -48,7 +28,7 @@ private struct ShineOverlayApp: View {
             ))
             .scaleEffect(y: 8)
             .offset(x: animationOffset)
-            .rotationEffect(.degrees(45))
+            .rotationEffect(.degrees(0))
             .scaleEffect(x: rightToLeft ? -1 : 1)
             .onAppear {
                 animationOffset = -size.width
@@ -62,5 +42,26 @@ private struct ShineOverlayApp: View {
                     }
                 }
             }
+    }
+}
+
+public extension View {
+    @ViewBuilder func shine(_ trigger: Bool, duration: CGFloat = 0.8, clipShape: some Shape = .rect, rightToLeft: Bool = false, color: Color = .white) -> some View {
+        self
+            .overlay {
+                GeometryReader { geometry in
+                    let size = geometry.size
+                    let modeDuration = max(0.3, duration)
+                    
+                    ShineOverlayApp(
+                        trigger: trigger,
+                        size: size,
+                        duration: modeDuration,
+                        rightToLeft: rightToLeft,
+                        color: color
+                    )
+                }
+            }
+            .clipShape(clipShape)
     }
 }

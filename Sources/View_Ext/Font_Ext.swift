@@ -2,7 +2,7 @@
 import SwiftUI
 
 @MainActor
-public enum FontTypes: String {
+public enum FontTypeApp: String {
     case black
     case bold
     case semibold
@@ -19,18 +19,19 @@ public enum FontTypes: String {
         }
     }
     
-    var fontValue: String {
-        "\(AppStaticValue.fontExt.capitalized)-\(self.rawValue.capitalized)"
+    func fontValue(font: String) -> String {
+        "\(font.capitalized)-\(self.rawValue.capitalized)"
     }
 }
 
 public extension View {
-    func fontSys(_ type: FontTypes, _ size: CGFloat) -> some View {
+    func fontSys(_ type: FontTypeApp, _ size: CGFloat) -> some View {
         self.font(.system(size: size, weight: type.weight, design: .default))
     }
     
-    func fontsApp(_ font: FontTypes, _ size: CGFloat) -> some View {
-        self.font(.custom(font.fontValue, size: size))
+    func fontApp(_ font: FontTypeApp, _ size: CGFloat, fontName: String = AppStaticValue.fontExt) -> some View {
+        self.font(.custom(font.fontValue(font: fontName), size: size))
     }
 }
+
 

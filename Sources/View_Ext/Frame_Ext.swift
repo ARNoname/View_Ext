@@ -2,11 +2,11 @@ import SwiftUI
 
 public extension View {
    func frameApp(
-        _ alignment: Alignment = .leading,
-        _ bg: Color = Color(hex: "F5F5F5"),
-        _ isStroke: Bool = false,
-        _ colorStroke: Color = .secondary.opacity(0.5),
-        _ radius: CGFloat = 16
+        alignment: Alignment = .leading,
+        bg: Color = Color(hex: "F5F5F5"),
+        isStroke: Bool = false,
+        colorStroke: Color = .secondary.opacity(0.5),
+        radius: CGFloat = 16
     ) -> some View  {
         self
             .frame(maxWidth: .infinity, alignment: alignment)
