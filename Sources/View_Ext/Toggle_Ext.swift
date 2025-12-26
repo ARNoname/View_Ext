@@ -1,6 +1,6 @@
 import SwiftUI
 
-public struct ToogleApp: View {
+public struct ToggleApp: View {
     
     @State var scaleEffect: CGFloat = 1.0
     @State var isConnect: Bool = false
@@ -20,7 +20,7 @@ public var body: some View {
             
             VStack(alignment: .leading, spacing: 4) {
                 Text(isEnableAllCategories ? "ON" : "OFF")
-                    .fontsApp(.medium, 10)
+                    .fontApp(.medium, 10)
                     .foregroundStyle(isEnableAllCategories ? fgisActiveOn : fgisActiveOff)
             }
             .hAlig(.trailing, isEnableAllCategories ? 35 : 6)
