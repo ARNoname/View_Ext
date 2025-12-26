@@ -1,8 +1,8 @@
 import SwiftUI
 
 public struct SwipeCellApp<Content: View>: View {
-    public var content: Content
-    public var onDelete: () -> Void
+     var content: Content
+     var onDelete: () -> Void
     
     @State private var offset: CGFloat = 0
     @GestureState private var isDragging = false

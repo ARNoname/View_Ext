@@ -46,8 +46,13 @@ private struct ShineOverlayApp: View {
 }
 
 public extension View {
-    @ViewBuilder func shine(_ trigger: Bool, duration: CGFloat = 0.8, clipShape: some Shape = .rect, rightToLeft: Bool = false, color: Color = .white) -> some View {
-        self
+    @ViewBuilder func shineApp(
+        trigger: Bool,
+        duration: CGFloat = 0.8,
+        clipShape: some Shape = .rect,
+        rightToLeft: Bool = false,
+        color: Color = .white) -> some View {
+         self
             .overlay {
                 GeometryReader { geometry in
                     let size = geometry.size
@@ -62,6 +67,48 @@ public extension View {
                     )
                 }
             }
-            .clipShape(clipShape)
+            .clipShape(
+                clipShape
+            )
     }
 }
+
+/*
+ 
+ // MARK: - Start Shimmer
+ 
+ static  func startShimmerTimer() {
+     Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true) { _ in
+         DispatchQueue.main.async {
+             shine = true
+         }
+        
+         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+             shine = false
+         }
+     }
+ }
+ 
+ // MARK: - View Example: .shine
+ 
+ ZStack {
+   RoundedRectangle(cornerRadius: 18)
+   .fill(Color.clear)
+   .shine(shine, duration: 1, clipShape: .capsule)
+ 
+  HStack(spacing: 8) {
+    Image(.shield)
+    Text("Local shared")
+     .font(.medium, 14)
+     .foregroundStyle(Color.white)
+  }
+ }
+ .frame(width: 270, height: 36)
+ .background(Color.greenColors.opacity(0.1))
+ .background(.ultraThinMaterial.opacity(0.1))
+ .clipShape(.rect(cornerRadius: 18))
+ .overlay {
+    RoundedRectangle(cornerRadius: 18)
+     .stroke(Color.greenColors.opacity(0.2), lineWidth: 1)
+ }
+ */

@@ -2,7 +2,7 @@ import Foundation
 import SwiftUI
 
 public extension View {
-    func onBackSwipe(perform action: @escaping () -> Void) -> some View {
+    func onBackSwipeApp(perform action: @escaping () -> Void) -> some View {
         simultaneousGesture( DragGesture()
             .onEnded({ value in
                 if value.startLocation.x < 10 && value.translation.width > 80 {
@@ -15,13 +15,13 @@ public extension View {
 extension UINavigationController: @retroactive UIGestureRecognizerDelegate {
     override open func viewDidLoad() {
         super.viewDidLoad()
-        if AppStaticValue.backSwipeGesture {
+        if StaticValueApp.backSwipeGesture {
             interactivePopGestureRecognizer?.delegate = self
         }
     }
 
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        guard AppStaticValue.backSwipeGesture else { return true }
+        guard StaticValueApp.backSwipeGesture else { return true }
         return viewControllers.count > 1
     }
 }

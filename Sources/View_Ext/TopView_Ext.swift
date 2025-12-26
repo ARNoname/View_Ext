@@ -3,20 +3,51 @@ import SwiftUI
 
 public struct TopViewApp: View {
     
-    public var imageLogo: String?
-    public var imageLogoW: CGFloat = 123
-    public var imageLogoH: CGFloat = 18
-    public var title: String?
-    public var weight: FontTypeApp = .bold
-    public var size: CGFloat = 20
-    public var fg: Color = .black
-    public var bg: Color = .clear
-    public var iconL: String?
-    public var iconLColor: Color = .black
-    public var iconR: String?
-    public var iconRColor: Color = .black
-    public var actionL: (() -> Void)?
-    public var actionR: (() -> Void)?
+    var imageLogo: String?
+    var imageLogoW: CGFloat
+    var imageLogoH: CGFloat
+    var title: String?
+    var weight: FontTypeApp
+    var size: CGFloat
+    var fg: Color
+    var bg: Color
+    var iconL: String?
+    var iconLColor: Color
+    var iconR: String?
+    var iconRColor: Color 
+    var actionL: (() -> Void)?
+    var actionR: (() -> Void)?
+    
+    public init(
+        imageLogo: String? = nil,
+        imageLogoW: CGFloat = 123,
+        imageLogoH: CGFloat = 18,
+        title: String? = nil,
+        weight: FontTypeApp = .bold,
+        size: CGFloat = 20,
+        fg: Color = .black,
+        bg: Color = .clear,
+        iconL: String? = nil,
+        iconLColor: Color = .black,
+        iconR: String? = nil,
+        iconRColor: Color = .black,
+        actionL: (() -> Void)? = nil,
+        actionR: (() -> Void)? = nil) {
+        self.imageLogo = imageLogo
+        self.imageLogoW = imageLogoW
+        self.imageLogoH = imageLogoH
+        self.title = title
+        self.weight = weight
+        self.size = size
+        self.fg = fg
+        self.bg = bg
+        self.iconL = iconL
+        self.iconLColor = iconLColor
+        self.iconR = iconR
+        self.iconRColor = iconRColor
+        self.actionL = actionL
+        self.actionR = actionR
+    }
     
     public var body: some View {
         ZStack {

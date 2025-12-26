@@ -4,12 +4,28 @@ public struct ToggleApp: View {
     
     @State private var isConnect: Bool = false
     
-    public var scaleEffect: CGFloat = 1.0
-    public var fgisActiveOn: Color  = .white
-    public var fgisActiveOff: Color = .red
-    public var bgisActiveOn: Color  = .green
-    public var bgisActiveOff: Color = .red
-    public var action: () -> Void
+    var scaleEffect: CGFloat
+    var fgisActiveOn: Color
+    var fgisActiveOff: Color
+    var bgisActiveOn: Color 
+    var bgisActiveOff: Color
+    var action: () -> Void
+    
+    public init(
+        scaleEffect: CGFloat = 1.0,
+        fgisActiveOn: Color = .white,
+        fgisActiveOff: Color = .red,
+        bgisActiveOn: Color = .green,
+        bgisActiveOff: Color = .red,
+        action: @escaping () -> Void
+    ) {
+        self.scaleEffect = scaleEffect
+        self.fgisActiveOn = fgisActiveOn
+        self.fgisActiveOff = fgisActiveOff
+        self.bgisActiveOn = bgisActiveOn
+        self.bgisActiveOff = bgisActiveOff
+        self.action = action
+    }
     
     public var body: some View {
         ZStack {

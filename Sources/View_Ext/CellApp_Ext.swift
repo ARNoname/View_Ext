@@ -2,15 +2,37 @@ import SwiftUI
 
 public struct CellApp: View {
     
-    public var title: String
-    public var iconL: String?
-    public var iconSysL: String?
-    public var fg: Color = .black
-    public var iconR: String?
-    public var iconSysR: String?
-    public var weight: FontTypeApp = .regular
-    public var size: CGFloat = 16
-    public var action: () -> Void
+    var title: String
+    var iconL: String?
+    var iconSysL: String?
+    var fg: Color
+    var iconR: String?
+    var iconSysR: String?
+    var weight: FontTypeApp
+    var size: CGFloat
+    var action: () -> Void
+    
+    public init(
+        title: String,
+        iconL: String? = nil,
+        iconSysL: String? = nil,
+        fg: Color = .black,
+        iconR: String? = nil,
+        iconSysR: String? = nil,
+        weight: FontTypeApp = .regular,
+        size: CGFloat = 16,
+        action: @escaping () -> Void
+    ) {
+        self.title = title
+        self.iconL = iconL
+        self.iconSysL = iconSysL
+        self.fg = fg
+        self.iconR = iconR
+        self.iconSysR = iconSysR
+        self.weight = weight
+        self.size = size
+        self.action = action
+    }
     
     public  var body: some View {
         ButtonApp {

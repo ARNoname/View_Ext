@@ -29,7 +29,7 @@ public extension View {
         self.font(.system(size: size, weight: type.weight, design: .default))
     }
     
-    func fontApp(_ font: FontTypeApp, _ size: CGFloat, fontName: String = AppStaticValue.fontExt) -> some View {
+    func fontApp(_ font: FontTypeApp, _ size: CGFloat, fontName: String = StaticValueApp.fontExt) -> some View {
         self.font(.custom(font.fontValue(font: fontName), size: size))
     }
 }
