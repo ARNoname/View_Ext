@@ -3,7 +3,7 @@ import SwiftUI
 struct BackgroundApp: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .background(bgColors)
+            .background(AppStaticValue.bgColors)
     }
 }
 

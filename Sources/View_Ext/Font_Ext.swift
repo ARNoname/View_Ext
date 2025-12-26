@@ -20,7 +20,7 @@ public enum FontTypes: String {
     }
     
     var fontValue: String {
-        "\(fontExt.capitalized)-\(self.rawValue.capitalized)"
+        "\(AppStaticValue.fontExt.capitalized)-\(self.rawValue.capitalized)"
     }
 }
 
