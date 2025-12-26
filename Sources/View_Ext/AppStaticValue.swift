@@ -1,10 +1,10 @@
 import SwiftUI
 
 @MainActor
-public var bgColors: Color = Color.white
+public struct AppStaticValue: Sendable {
+    public static var bgColors: Color = Color.white
+    public static var fontExt: String = ""
+    public static var backSwipeGesture: Bool = false
+}
 
-@MainActor
-public var fontExt: String = ""
 
-@MainActor
-public var backSwipeGesture: Bool = false
