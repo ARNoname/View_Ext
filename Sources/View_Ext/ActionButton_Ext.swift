@@ -3,7 +3,7 @@ import SwiftUI
 public struct ActioButtonApp: View {
 
     var title: String
-    var icon: String? 
+    var icon: ImageResource?
     var systemImage: String?
     var iconColor: Color
     var isStroke: Bool?
@@ -15,7 +15,7 @@ public struct ActioButtonApp: View {
     
     public init(
         title: String,
-        icon: String? = nil,
+        icon: ImageResource? = nil,
         systemImage: String? = nil,
         iconColor: Color = .white,
         isStroke: Bool? = nil,

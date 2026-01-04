@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "View_Ext",
     platforms: [
-        .iOS(.v16),
+        .iOS(.v17),
         .macOS(.v10_15)
     ],
     products: [

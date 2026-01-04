@@ -3,13 +3,25 @@ import SwiftUI
 public struct SwipeCellApp<Content: View>: View {
      var content: Content
      var onDelete: () -> Void
+     var fgColor: Color
+     var bgColor: Color
+     var cornerRadius: CGFloat
     
     @State private var offset: CGFloat = 0
     @GestureState private var isDragging = false
     
-    public init(@ViewBuilder content: () -> Content, onDelete: @escaping () -> Void) {
+    public init(
+        @ViewBuilder content: () -> Content,
+        onDelete: @escaping () -> Void,
+        fgColor: Color = .white,
+        bgColor: Color = .red,
+        cornerRadius: CGFloat = 16
+    ) {
         self.content = content()
         self.onDelete = onDelete
+        self.fgColor = fgColor
+        self.bgColor = bgColor
+        self.cornerRadius = cornerRadius
     }
     
     public var body: some View {
@@ -20,11 +32,11 @@ public struct SwipeCellApp<Content: View>: View {
             }) {
                 Image(systemName: "trash")
                     .renderingMode(.template)
-                    .foregroundStyle(Color.white)
+                    .foregroundStyle(fgColor)
                     .hAlig(.trailing, 39)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(Color.red)
-                    .clipShape(.rect(cornerRadius: 16))
+                    .background(bgColor)
+                    .clipShape(.rect(cornerRadius: cornerRadius))
                     .padding(2)
                     .padding(.horizontal, 16)
             }

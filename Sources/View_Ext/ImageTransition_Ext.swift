@@ -2,8 +2,8 @@ import SwiftUI
 
 public struct ImageTrasitionApp: View {
     
-    var imageOne: String
-    var imageTwo: String
+    var imageOne: ImageResource
+    var imageTwo: ImageResource
     var title: String?
     var titleWeigth: FontTypeApp
     var titleSize: CGFloat
@@ -12,8 +12,8 @@ public struct ImageTrasitionApp: View {
     var action: () -> Void
     
     public init(
-        imageOne: String,
-        imageTwo: String,
+        imageOne: ImageResource,
+        imageTwo: ImageResource,
         title: String? = nil,
         titleWeigth: FontTypeApp = .medium,
         titleSize: CGFloat = 16,

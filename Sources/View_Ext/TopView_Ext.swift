@@ -3,7 +3,7 @@ import SwiftUI
 
 public struct TopViewApp: View {
     
-    var imageLogo: String?
+    var imageLogo: ImageResource?
     var imageLogoW: CGFloat
     var imageLogoH: CGFloat
     var title: String?
@@ -11,15 +11,15 @@ public struct TopViewApp: View {
     var size: CGFloat
     var fg: Color
     var bg: Color
-    var iconL: String?
+    var iconL: ImageResource?
     var iconLColor: Color
-    var iconR: String?
-    var iconRColor: Color 
+    var iconR: ImageResource?
+    var iconRColor: Color
     var actionL: (() -> Void)?
     var actionR: (() -> Void)?
     
     public init(
-        imageLogo: String? = nil,
+        imageLogo: ImageResource? = nil,
         imageLogoW: CGFloat = 123,
         imageLogoH: CGFloat = 18,
         title: String? = nil,
@@ -27,9 +27,9 @@ public struct TopViewApp: View {
         size: CGFloat = 20,
         fg: Color = .black,
         bg: Color = .clear,
-        iconL: String? = nil,
+        iconL: ImageResource? = nil,
         iconLColor: Color = .black,
-        iconR: String? = nil,
+        iconR: ImageResource? = nil,
         iconRColor: Color = .black,
         actionL: (() -> Void)? = nil,
         actionR: (() -> Void)? = nil) {

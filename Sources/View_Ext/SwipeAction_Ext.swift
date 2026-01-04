@@ -15,13 +15,16 @@ public extension View {
 extension UINavigationController: @retroactive UIGestureRecognizerDelegate {
     override open func viewDidLoad() {
         super.viewDidLoad()
-        if StaticValueApp.backSwipeGesture {
+        if StaticValueApp.backSwipeGesture == true {
             interactivePopGestureRecognizer?.delegate = self
         }
     }
 
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        guard StaticValueApp.backSwipeGesture else { return true }
-        return viewControllers.count > 1
+        if StaticValueApp.backSwipeGesture == true {
+            return viewControllers.count > 1
+        } else {
+            return false
+        }
     }
 }

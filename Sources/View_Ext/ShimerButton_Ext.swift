@@ -33,7 +33,7 @@ private struct ShineOverlayApp: View {
             .onAppear {
                 animationOffset = -size.width
             }
-            .onChange(of: trigger) {  newValue in
+            .onChange(of: trigger) {oldValue, newValue in
                 if newValue {
                     animationOffset = -size.width
                     
