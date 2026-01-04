@@ -4,8 +4,8 @@ import UIKit
 @MainActor
 public struct TextColorApp {
 
-    public func colorString(text: String,
-                    rangeOne: String,
+    public func colorString(text: String = "",
+                    rangeOne: String = "",
                     rangeOneColor: UIColor = .red,
                     rangeTwo: String? = nil,
                     rangeTwoColor: UIColor? = nil,
